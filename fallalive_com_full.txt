@@ -1,0 +1,67 @@
+=== WHOIS ===
+Domain Name: FALLALIVE.COM
+   Registry Domain ID: 2742111084_DOMAIN_COM-VRSN
+   Registrar WHOIS Server: whois.godaddy.com
+   Registrar URL: http://www.godaddy.com
+   Updated Date: 2024-03-30T17:30:45Z
+   Creation Date: 2022-12-02T02:59:55Z
+   Registry Expiry Date: 2032-12-02T02:59:55Z
+   Registrar: GoDaddy.com, LLC
+   Registrar IANA ID: 146
+   Registrar Abuse Contact Email: abuse@godaddy.com
+   Registrar Abuse Contact Phone: 480-624-2505
+   Domain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited
+   Domain Status: clientRenewProhibited https://icann.org/epp#clientRenewProhibited
+   Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+   Domain Status: clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited
+   Name Server: PDNS05.DOMAINCONTROL.COM
+   Name Server: PDNS06.DOMAINCONTROL.COM
+   DNSSEC: unsigned
+   URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+>>> Last update of whois database: 2026-03-10T10:01:10Z <<<
+
+For more information on Whois status codes, please visit https://icann.org/epp
+
+NOTICE: The expiration date displayed in this record is the date the
+registrar's sponsorship of the domain name registration in the registry is
+currently set to expire. This date does not necessarily reflect the expiration
+date of the domain name registrant's agreement with the sponsoring
+registrar.  Users may consult the sponsoring registrar's Whois database to
+view the registrar's reported date of expiration for this registration.
+
+TERMS OF USE: You are not authorized to access or query our Whois
+database through the use of electronic processes that are high-volume and
+automated except as reasonably necessary to register domain names or
+modify existing registrations; the Data in VeriSign Global Registry
+Services' ("VeriSign") Whois database is provided by VeriSign for
+information purposes only, and to assist persons in obtaining information
+about or related to a domain name registration record. VeriSign does not
+guarantee its accuracy. By submitting a Whois query, you agree to abide
+by the following terms of use: You agree that you may use this Data only
+for lawful purposes and that under no circumstances will you use this Data
+
+=== DNS Full ===
+fallalive.com.		3600	IN	A	3.33.251.168
+fallalive.com.		3600	IN	A	15.197.225.128
+fallalive.com.		3600	IN	NS	pdns06.domaincontrol.com.
+fallalive.com.		3600	IN	NS	pdns05.domaincontrol.com.
+fallalive.com.		3600	IN	SOA	pdns05.domaincontrol.com. dns.jomax.net. 2026030902 28800 7200 604800 600
+
+=== Port Scan ===
+Starting Nmap 7.95 ( https://nmap.org ) at 2026-03-10 13:01 +03
+Nmap scan report for fallalive.com (3.33.251.168)
+Host is up (0.012s latency).
+Other addresses for fallalive.com (not scanned): 15.197.225.128
+rDNS record for 3.33.251.168: aec037177372cc6cd.awsglobalaccelerator.com
+Not shown: 998 filtered tcp ports (no-response)
+Some closed ports may be reported as filtered due to --defeat-rst-ratelimit
+PORT    STATE SERVICE
+80/tcp  open  http
+443/tcp open  https
+
+Nmap done: 1 IP address (1 host up) scanned in 9.87 seconds
+
+=== SSL Cert ===
+subject=CN=fallalive.com
+notBefore=Aug 17 01:07:03 2025 GMT
+notAfter=Aug 17 01:07:03 2026 GMT

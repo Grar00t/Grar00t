@@ -1,0 +1,78 @@
+=== WHOIS ===
+Domain Name: HILO.COM
+   Registry Domain ID: 1067788_DOMAIN_COM-VRSN
+   Registrar WHOIS Server: whois.infomaniak.com
+   Registrar URL: http://www.infomaniak.com
+   Updated Date: 2025-03-26T09:21:05Z
+   Creation Date: 1997-10-23T04:00:00Z
+   Registry Expiry Date: 2026-10-22T04:00:00Z
+   Registrar: Infomaniak Network SA
+   Registrar IANA ID: 3240
+   Registrar Abuse Contact Email: abuse@infomaniak.com
+   Registrar Abuse Contact Phone: 0041228203541
+   Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+   Name Server: NS-1143.AWSDNS-14.ORG
+   Name Server: NS-1544.AWSDNS-01.CO.UK
+   Name Server: NS-162.AWSDNS-20.COM
+   Name Server: NS-794.AWSDNS-35.NET
+   DNSSEC: unsigned
+   URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+>>> Last update of whois database: 2026-03-10T14:21:14Z <<<
+
+For more information on Whois status codes, please visit https://icann.org/epp
+
+NOTICE: The expiration date displayed in this record is the date the
+registrar's sponsorship of the domain name registration in the registry is
+currently set to expire. This date does not necessarily reflect the expiration
+date of the domain name registrant's agreement with the sponsoring
+registrar.  Users may consult the sponsoring registrar's Whois database to
+view the registrar's reported date of expiration for this registration.
+
+TERMS OF USE: You are not authorized to access or query our Whois
+database through the use of electronic processes that are high-volume and
+automated except as reasonably necessary to register domain names or
+modify existing registrations; the Data in VeriSign Global Registry
+Services' ("VeriSign") Whois database is provided by VeriSign for
+information purposes only, and to assist persons in obtaining information
+about or related to a domain name registration record. VeriSign does not
+guarantee its accuracy. By submitting a Whois query, you agree to abide
+by the following terms of use: You agree that you may use this Data only
+for lawful purposes and that under no circumstances will you use this Data
+to: (1) allow, enable, or otherwise support the transmission of mass
+
+=== DNS Full ===
+hilo.com.		60	IN	A	18.161.111.108
+hilo.com.		60	IN	A	18.161.111.63
+hilo.com.		60	IN	A	18.161.111.43
+hilo.com.		60	IN	A	18.161.111.22
+hilo.com.		21600	IN	NS	ns-1143.awsdns-14.org.
+hilo.com.		21600	IN	NS	ns-794.awsdns-35.net.
+hilo.com.		21600	IN	NS	ns-162.awsdns-20.com.
+hilo.com.		21600	IN	NS	ns-1544.awsdns-01.co.uk.
+hilo.com.		900	IN	SOA	ns-1143.awsdns-14.org. awsdns-hostmaster.amazon.com. 1 7200 900 1209600 86400
+hilo.com.		300	IN	MX	10 hilo-com.mail.protection.outlook.com.
+hilo.com.		300	IN	TXT	"google-site-verification=BDWQAIFlZCByBVXTxMZMqi4pJ8Xwjm_Evj0CqXwi7xk"
+hilo.com.		300	IN	TXT	"MS=ms96313603"
+hilo.com.		300	IN	TXT	"facebook-domain-verification=7yj76biz4cpvt8prbwhwedpto3zgln"
+hilo.com.		300	IN	TXT	"linkedin-site-verification=6bc6470e-14c9-4981-a99d-175640fcd604"
+hilo.com.		300	IN	TXT	"v=spf1 include:spf.protection.outlook.com include:amazonses.com -all"
+hilo.com.		300	IN	TXT	"klaviyo-site-verification=Yn7ZRF"
+
+=== Port Scan ===
+Starting Nmap 7.95 ( https://nmap.org ) at 2026-03-10 17:21 +03
+Nmap scan report for hilo.com (216.137.38.114)
+Host is up (0.015s latency).
+Other addresses for hilo.com (not scanned): 216.137.38.22 216.137.38.80 216.137.38.3
+rDNS record for 216.137.38.114: server-216-137-38-114.jed50.r.cloudfront.net
+Not shown: 998 filtered tcp ports (no-response)
+Some closed ports may be reported as filtered due to --defeat-rst-ratelimit
+PORT    STATE SERVICE
+80/tcp  open  http
+443/tcp open  https
+
+Nmap done: 1 IP address (1 host up) scanned in 10.20 seconds
+
+=== SSL Cert ===
+subject=CN=hilo.com
+notBefore=Feb 25 00:00:00 2026 GMT
+notAfter=Sep 10 23:59:59 2026 GMT
