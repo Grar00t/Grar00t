@@ -1,116 +1,96 @@
-# SULAIMAN AL-SHAMMARI — **@Grar00t**
-### The Algorithm Always Comes Home
+<div align="center">
+
+# 🛡️ SULAIMAN ALSHAMMARI — @Grar00t
+
+### Dragon403 · Founder @ GraTech · الخوارزمية دائماً تعود للوطن
+
+[![Website](https://img.shields.io/badge/khawrizm.com-000000?style=for-the-badge&logo=google-chrome&logoColor=00ff41)](https://khawrizm.com)
+[![IDE](https://img.shields.io/badge/HAVEN_IDE-000000?style=for-the-badge&logo=visual-studio-code&logoColor=00ff41)](https://ide.khawrizm.com)
+[![YouTube](https://img.shields.io/badge/@saudicyper-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/@saudicyper)
+[![X](https://img.shields.io/badge/@khawrzm-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/khawrzm)
+
+</div>
 
 ---
 
-```
-▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
-         KHAWRIZM SOVEREIGN STACK · RIYADH · 2026
-   "Al-Khwarizmi invented the algorithm. We're bringing it home."
-▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
-```
+## ⚡ The Story
+
+GitHub **deleted two of my accounts** — no warning, no appeal. Microsoft shipped a Copilot feature identical to my published work. That's when I decided: **no corporation should ever own your code.**
+
+I spent **730 days** building a complete sovereign AI stack from scratch in Riyadh. Zero team. Zero funding. One vision.
 
 ---
 
-## ⚡ WHAT HAPPENED
+## 🏗️ What I Built
 
-GitHub **deleted two of my accounts** — `GRATECHX` and `KHAWRIZM` — without explanation. Shortly afterward, Microsoft shipped a Copilot feature visually identical to work I had published. Years of code. Gone. No appeal. No response.
-
-This is why I'm building a world where **no company can delete your work ever again.**
-
-→ **iqd@hotmail.com** · **Shammar403@gmail.com**  
-→ X: **[@khawrzm](https://x.com/kharzm)** · Web: **[khawrzm.com](https://www.khawrzm.com)**
-
----
+| Project | Description | Status |
+|---------|-------------|--------|
+| **[HAVEN IDE](https://ide.khawrizm.com)** | Sovereign AI development environment — 11 models, zero telemetry | 🟢 Live |
+| **[NiyahEngine v3](https://github.com/Grar00t/haven-niyah-engine)** | Three-Lobe AI orchestration (8,395 lines TypeScript) | 🟢 Open Source |
+| **[KhawrizmOS](https://khawrizm.com)** | Sovereign ARM64 operating system (797MB ISO) | 🟢 Built |
+| **NiyahShield** | AI fraud detection powered by NiyahEngine | 🟡 Building |
+| **[GraTech](https://gratech.sa)** | Sovereign AI company (CR: 7050426415) | 🟢 Registered |
 
 ## 🔭 DRAGON403 — The Investigation
 
-**730+ days.** Chinese fraud app targeting thousands of Gulf Arab victims.  
-Google Play case `6-3808000039722`. Filed. Documented. **Unanswered.**  
-App: `com.qiahao.nextvideo` (HILO). Crimes: financial fraud + PDPL violations.  
-I am the **investigator**. Not the victim.
+**730+ days** investigating a Chinese fraud network targeting Gulf users:
+- 💰 600,000+ SAR stolen ($160K+ USD)
+- 👥 2,000+ victims across the Gulf
+- 📱 5 apps sharing 1 backend (Falla, HILO, TOOFUN, HILOCONN, APIBOLI)
+- 📋 Filed with: FBI (IC3), FTC (#199332032), CISA, Europol, Action Fraud UK
+- 🔍 Google Play Case `6-3808000039722` — open 2+ years, no action
 
----
+**I am the investigator. Not the victim.**
 
-## 🗺️ WHAT WE'RE REPLACING
-
-| **THEM** | **→** | **US** |
-|---|---|---|
-| GitHub | → | **K-Forge** (P2P · Ed25519 · undeletable) |
-| Windows / macOS | → | **KhawrizmOS** (arm64 ISO — LIVE) |
-| VS Code | → | **Haven IDE** (zero telemetry · ide.khawrzm.com) |
-| Chrome | → | **Haven Browser** (Chromium · no surveillance) |
-| ChatGPT / Copilot | → | **Niyah Engine** (Arabic-first · on-device) |
-| WhatsApp / Telegram | → | **Zaman Messenger** (Signal Protocol · P2P) |
-| Google Drive / iCloud | → | **KhawrizmDrive** (IPFS · AES-256) |
-| Google Search | → | **Haven Search** (SearXNG + Niyah intent) |
-| npm / pip | → | **KHZ Package Registry** (sovereign · signed) |
-
----
-
-## 🧠 THREE-LOBE ARCHITECTURE
+## 🧠 Three-Lobe Architecture
 
 ```
-┌──────────────────────────────────────────┐
-│           NIYAH ENGINE v2                │
-│                                          │
-│  FRONTAL       LIMBIC       TEMPORAL     │
-│  (Executive) → (Sensory) → (Memory)      │
-│  Decisions     Context      History      │
-│                                          │
-│  Arabic-first · 5 dialects · PDPL        │
-│  On-device · Zero cloud leaks            │
-└──────────────────────────────────────────┘
+     ┌─────────────┐
+     │  SENSORY     │ ← Arabic NLP, 2,976 word forms, dialect detection
+     └──────┬───────┘
+            │
+  ┌─────────┼─────────┐
+  │         │         │
+┌─▼──┐  ┌──▼──┐  ┌──▼──┐
+│EXEC│  │COGN │  │LOCAL│
+│    │  │     │  │    │
+│Tier│  │Anti-│  │niyah│
+│pick│  │hall.│  │:v3  │
+└────┘  └─────┘  └─────┘
 ```
 
----
-
-## 🔐 K-FORGE
-
-```bash
-kforge init --sovereign          # Ed25519 identity — you own it
-kforge push --peers auto         # P2P propagation — no server needed
-kforge clone k-forge://Grar00t/Haven --offline
-kforge verify HEAD               # Cryptographic proof. Immutable.
-# The day GitHub deletes you: your code still exists.
-```
-
----
-
-## 📦 REPOSITORIES
-
-| Repo | Status |
-|------|--------|
-| [KhawrizmOS](https://github.com/Grar00t/KhawrizmOS) | ✅ LIVE — 2.0GB arm64 ISO |
-| [GraTech-Nexus-Prime](https://github.com/Grar00t/GraTech-Nexus-Prime) | ✅ LIVE — 3-Lobe AI core |
-| [comet-x](https://github.com/Grar00t/comet-x) | ✅ LIVE — Local-first browser AI |
-| [os-haven](https://github.com/Grar00t/os-haven) | 🔨 BUILDING — ide.khawrzm.com |
-| [gratech-unified](https://github.com/Grar00t/gratech-unified) | ✅ LIVE — Sovereign AI API |
-| [sovereign-stack](https://github.com/Grar00t/sovereign-stack) | ✅ LIVE — Big Tech alternatives |
-| [cometx-ultimate-v4](https://github.com/Grar00t/cometx-ultimate-v4) | ✅ LIVE — Chrome extension |
-
----
-
-## 📡 STATUS
+## 📊 By The Numbers
 
 ```
-KhawrizmOS ISO    ████████████████████  ✅ 2.0GB arm64
-Haven IDE         ████████████████░░░░  🔨 ide.khawrzm.com
-K-Forge v0.1      ████████████░░░░░░░░  🔨 CLI working
-Niyah Engine v2   █████████████████░░░  🔨 5 dialects
-Phalanx Protocol  ████████████░░░░░░░░  🔨 Process classification
-Haven Browser     ████░░░░░░░░░░░░░░░░  📋 Q2 2026
-Zaman Messenger   ███░░░░░░░░░░░░░░░░░  📋 Q3 2026
-KhawrizmDrive     ███░░░░░░░░░░░░░░░░░  📋 Q3 2026
+8,395    lines of TypeScript (engine alone)
+2,976    Arabic word forms indexed
+102      unit tests across 15 suites
+15       YouTube videos documenting everything
+7        international fraud reports filed
+3        live websites
+1        bootable sovereign OS
+0        external funding
+1        engineer. Riyadh. 🇸🇦
 ```
+
+## 📺 YouTube: [@saudicyper](https://youtube.com/@saudicyper)
+
+| Video | Views |
+|-------|-------|
+| [I Broke Microsoft Copilot](https://youtu.be/zZoCNUVJDUg) | 3,800+ |
+| [Khawrizm OS v3.0 Build](https://youtu.be/GCxbuzl_0zk) | 33 |
+| [Gemini Hacking a Real Website](https://youtube.com/@saudicyper) | 22 |
+| [EXPOSED: HILO App Hardcoded Keys](https://youtube.com/@saudicyper) | 33 |
 
 ---
 
 <div align="center">
 
-**الخوارزمية دائماً تعود للوطن**  
-*The Algorithm Always Comes Home*
+**From Baghdad's House of Wisdom (820 AD) to Riyadh's Sovereign AI (2026)**
 
-`KHAWRIZM · RIYADH · 2026`
+الخوارزمية دائماً تعود للوطن 🇸🇦
+
+📧 shammar403@gmail.com · iqd@hotmail.com
+🏢 Ghala Rafaa Al-Omari Co. · CR: 7050426415
 
 </div>
