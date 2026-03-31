@@ -1,3 +1,16 @@
+﻿<!-- SIGNALS-BADGES-START -->
+## Sovereign GitHub Signals
+
+![Followers](https://img.shields.io/badge/Followers-1-2ea44f?style=for-the-badge)
+![Public Repos](https://img.shields.io/badge/Public_Repos-22-0969da?style=for-the-badge)
+![Open PRs](https://img.shields.io/badge/Open_PRs-3-8250df?style=for-the-badge)
+![Merged PRs](https://img.shields.io/badge/Merged_PRs--1f883d?style=for-the-badge)
+![Open Issues](https://img.shields.io/badge/Open_Issues-2-d1242f?style=for-the-badge)
+
+[![GitHub Streak](https://streak-stats.demolab.com?user=Grar00t&theme=dark&hide_border=true)](https://github.com/Grar00t)
+[![Trophies](https://github-profile-trophy.vercel.app/?username=Grar00t&theme=onedark&no-frame=true&row=2&column=4)](https://github.com/Grar00t)
+<!-- SIGNALS-BADGES-END -->
+
 <div align="center">
 
 # 🛡️ SULAIMAN ALSHAMMARI — @Grar00t
@@ -94,3 +107,4 @@ I spent **730 days** building a complete sovereign AI stack from scratch in Riya
 🏢 Ghala Rafaa Al-Omari Co. · CR: 7050426415
 
 </div>
+
