@@ -12,6 +12,16 @@ function isThemeMode(value: string | null): value is ThemeMode {
   return value === 'dark' || value === 'light' || value === 'system';
 }
 
+function readStoredTheme(): ThemeMode {
+  try {
+    const current = localStorage.getItem('theme-mode');
+    const legacy = localStorage.getItem('theme');
+    return isThemeMode(current) ? current : isThemeMode(legacy) ? legacy : 'system';
+  } catch {
+    return 'system';
+  }
+}
+
 function resolveTheme(mode: ThemeMode) {
   if (mode !== 'system') return mode;
   return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
@@ -28,16 +38,20 @@ function applyTheme(mode: ThemeMode, persist = true) {
   const meta = document.querySelector('meta[name="theme-color"]');
   meta?.setAttribute('content', resolved === 'dark' ? '#07090d' : '#faf9f6');
 
-  if (persist) localStorage.setItem('theme-mode', mode);
+  if (persist) {
+    try {
+      localStorage.setItem('theme-mode', mode);
+    } catch {
+      // Storage may be unavailable in privacy-restricted contexts. The active theme still applies.
+    }
+  }
 }
 
 export default function ThemeToggle() {
   const [mode, setMode] = useState<ThemeMode>('system');
 
   useEffect(() => {
-    const current = localStorage.getItem('theme-mode');
-    const legacy = localStorage.getItem('theme');
-    const initial = isThemeMode(current) ? current : isThemeMode(legacy) ? legacy : 'system';
+    const initial = readStoredTheme();
 
     setMode(initial);
     applyTheme(initial, false);
