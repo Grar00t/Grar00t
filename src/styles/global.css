@@ -30,6 +30,13 @@ body {
 
 a { color: inherit; text-decoration: none; }
 a:hover { color: var(--ion); }
+a:focus-visible,
+button:focus-visible,
+[role='button']:focus-visible {
+  outline: 2px solid var(--ion);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
 ::selection { background: rgba(127, 215, 223, 0.24); color: white; }
 
 .ambient {
@@ -229,6 +236,10 @@ a:hover { color: var(--ion); }
   outline: none;
 }
 .search-box:focus { border-color: rgba(127,215,223,.42); }
+.search-box:focus-visible {
+  outline: 2px solid var(--ion);
+  outline-offset: 3px;
+}
 .essay-list { border-top: 1px solid var(--line); margin-bottom: 90px; }
 .essay-item { display: grid; grid-template-columns: 160px 1fr auto; gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--line); }
 .essay-item time { color: var(--faint); font: 10px var(--mono); }
