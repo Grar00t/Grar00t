@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import ThemeToggle from '../components/ThemeToggle';
 
 interface Props {
   title?: string;
@@ -14,15 +15,39 @@ const base = import.meta.env.BASE_URL;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark" data-theme-mode="system">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#07090d" />
+    <meta name="color-scheme" content="dark light" />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
     <title>{title}</title>
+    <script is:inline>
+      (() => {
+        const root = document.documentElement;
+        const allowed = new Set(['dark', 'light', 'system']);
+        let mode = 'system';
+        try {
+          const stored = localStorage.getItem('theme-mode') || localStorage.getItem('theme');
+          if (stored && allowed.has(stored)) mode = stored;
+        } catch {}
+
+        const resolved = mode === 'system'
+          ? (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+          : mode;
+
+        root.dataset.themeMode = mode;
+        root.dataset.theme = resolved;
+        root.style.colorScheme = resolved;
+        document.querySelector('meta[name="theme-color"]')?.setAttribute(
+          'content',
+          resolved === 'dark' ? '#07090d' : '#faf9f6'
+        );
+      })();
+    </script>
   </head>
   <body>
     <div class="ambient" aria-hidden="true"></div>
@@ -37,6 +62,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         <a href={`${base}#principles`}>Principles</a>
         <a href="mailto:iqd@hotmail.com">Contact</a>
       </nav>
+      <ThemeToggle client:load />
     </header>
     <main>
       <slot />
