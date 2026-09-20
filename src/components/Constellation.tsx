@@ -25,9 +25,10 @@ export default function Constellation() {
     if (!ctx) return;
 
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const compact = window.matchMedia('(max-width: 640px)').matches;
-    const nodeCount = compact ? 30 : 54;
-    const nodes: Node[] = Array.from({ length: nodeCount }, (_, i) => ({
+    const compactMedia = window.matchMedia('(max-width: 640px)');
+    let compact = compactMedia.matches;
+
+    const nodes: Node[] = Array.from({ length: 54 }, (_, i) => ({
       x: Math.random(),
       y: Math.random(),
       vx: (Math.random() - 0.5) * 0.000075,
@@ -42,21 +43,13 @@ export default function Constellation() {
     let dpr = Math.min(window.devicePixelRatio || 1, 2);
     let palette = readPalette();
 
-    const resize = () => {
-      const rect = canvas.getBoundingClientRect();
-      width = rect.width;
-      height = rect.height;
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
-      canvas.width = Math.max(1, Math.floor(width * dpr));
-      canvas.height = Math.max(1, Math.floor(height * dpr));
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      if (reduced) draw();
-    };
-
     const draw = () => {
       ctx.clearRect(0, 0, width, height);
 
-      for (let i = 0; i < nodes.length; i++) {
+      const activeCount = compact ? 30 : nodes.length;
+      const threshold = compact ? 76 : 92;
+
+      for (let i = 0; i < activeCount; i++) {
         const a = nodes[i];
         if (!reduced) {
           a.x += a.vx;
@@ -65,12 +58,11 @@ export default function Constellation() {
           if (a.y < 0 || a.y > 1) a.vy *= -1;
         }
 
-        for (let j = i + 1; j < nodes.length; j++) {
+        for (let j = i + 1; j < activeCount; j++) {
           const b = nodes[j];
           const dx = (a.x - b.x) * width;
           const dy = (a.y - b.y) * height;
           const dist = Math.hypot(dx, dy);
-          const threshold = compact ? 76 : 92;
           if (dist < threshold) {
             ctx.globalAlpha = (1 - dist / threshold) * 0.95;
             ctx.strokeStyle = palette.line;
@@ -84,7 +76,8 @@ export default function Constellation() {
         }
       }
 
-      for (const n of nodes) {
+      for (let i = 0; i < activeCount; i++) {
+        const n = nodes[i];
         const x = n.x * width;
         const y = n.y * height;
         ctx.beginPath();
@@ -103,8 +96,24 @@ export default function Constellation() {
       if (!reduced) frame = requestAnimationFrame(draw);
     };
 
+    const resize = () => {
+      const rect = canvas.getBoundingClientRect();
+      width = rect.width;
+      height = rect.height;
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.max(1, Math.floor(width * dpr));
+      canvas.height = Math.max(1, Math.floor(height * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      if (reduced) draw();
+    };
+
     const onThemeMutation = () => {
       palette = readPalette();
+      if (reduced) draw();
+    };
+
+    const onCompactChange = (event: MediaQueryListEvent) => {
+      compact = event.matches;
       if (reduced) draw();
     };
 
@@ -115,12 +124,14 @@ export default function Constellation() {
     ro.observe(canvas);
     const themeObserver = new MutationObserver(onThemeMutation);
     themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    compactMedia.addEventListener('change', onCompactChange);
     window.addEventListener('resize', resize);
 
     return () => {
       cancelAnimationFrame(frame);
       ro.disconnect();
       themeObserver.disconnect();
+      compactMedia.removeEventListener('change', onCompactChange);
       window.removeEventListener('resize', resize);
     };
   }, []);
