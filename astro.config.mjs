@@ -6,6 +6,11 @@ export default defineConfig({
   base: '/Grar00t',
   integrations: [react()],
   markdown: {
-    shikiConfig: { theme: 'github-dark-default' }
+    shikiConfig: {
+      themes: {
+        light: 'github-light',
+        dark: 'github-dark-default'
+      }
+    }
   }
 });

@@ -1,6 +1,19 @@
 import { useEffect, useRef } from 'react';
 
 type Node = { x: number; y: number; vx: number; vy: number; r: number; accent: boolean };
+type Palette = { line: string; node: string; accent: string; glow: string };
+
+const readPalette = (): Palette => {
+  const style = getComputedStyle(document.documentElement);
+  const value = (name: string, fallback: string) => style.getPropertyValue(name).trim() || fallback;
+
+  return {
+    line: value('--constellation-line', 'rgba(166, 186, 205, 0.16)'),
+    node: value('--constellation-node', 'rgba(225, 235, 244, 0.62)'),
+    accent: value('--constellation-accent', 'rgba(127, 215, 223, 0.92)'),
+    glow: value('--constellation-glow', 'rgba(127, 215, 223, 0.06)')
+  };
+};
 
 export default function Constellation() {
   const ref = useRef<HTMLCanvasElement>(null);
@@ -11,19 +24,23 @@ export default function Constellation() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const compact = window.matchMedia('(max-width: 640px)').matches;
+    const nodeCount = compact ? 30 : 54;
+    const nodes: Node[] = Array.from({ length: nodeCount }, (_, i) => ({
+      x: Math.random(),
+      y: Math.random(),
+      vx: (Math.random() - 0.5) * 0.000075,
+      vy: (Math.random() - 0.5) * 0.000075,
+      r: i % 13 === 0 ? 1.8 : Math.random() * 0.85 + 0.4,
+      accent: i % 17 === 0
+    }));
+
     let frame = 0;
     let width = 0;
     let height = 0;
     let dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const nodes: Node[] = Array.from({ length: 54 }, (_, i) => ({
-      x: Math.random(),
-      y: Math.random(),
-      vx: (Math.random() - 0.5) * 0.00009,
-      vy: (Math.random() - 0.5) * 0.00009,
-      r: i % 13 === 0 ? 1.9 : Math.random() * 0.9 + 0.45,
-      accent: i % 17 === 0
-    }));
+    let palette = readPalette();
 
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
@@ -33,6 +50,7 @@ export default function Constellation() {
       canvas.width = Math.max(1, Math.floor(width * dpr));
       canvas.height = Math.max(1, Math.floor(height * dpr));
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      if (reduced) draw();
     };
 
     const draw = () => {
@@ -46,19 +64,22 @@ export default function Constellation() {
           if (a.x < 0 || a.x > 1) a.vx *= -1;
           if (a.y < 0 || a.y > 1) a.vy *= -1;
         }
+
         for (let j = i + 1; j < nodes.length; j++) {
           const b = nodes[j];
           const dx = (a.x - b.x) * width;
           const dy = (a.y - b.y) * height;
           const dist = Math.hypot(dx, dy);
-          if (dist < 88) {
-            const alpha = (1 - dist / 88) * 0.16;
-            ctx.strokeStyle = `rgba(166, 186, 205, ${alpha})`;
+          const threshold = compact ? 76 : 92;
+          if (dist < threshold) {
+            ctx.globalAlpha = (1 - dist / threshold) * 0.95;
+            ctx.strokeStyle = palette.line;
             ctx.lineWidth = 0.7;
             ctx.beginPath();
             ctx.moveTo(a.x * width, a.y * height);
             ctx.lineTo(b.x * width, b.y * height);
             ctx.stroke();
+            ctx.globalAlpha = 1;
           }
         }
       }
@@ -68,12 +89,13 @@ export default function Constellation() {
         const y = n.y * height;
         ctx.beginPath();
         ctx.arc(x, y, n.r, 0, Math.PI * 2);
-        ctx.fillStyle = n.accent ? 'rgba(127,215,223,.92)' : 'rgba(225,235,244,.62)';
+        ctx.fillStyle = n.accent ? palette.accent : palette.node;
         ctx.fill();
+
         if (n.accent) {
           ctx.beginPath();
-          ctx.arc(x, y, 7, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(127,215,223,.06)';
+          ctx.arc(x, y, compact ? 5 : 7, 0, Math.PI * 2);
+          ctx.fillStyle = palette.glow;
           ctx.fill();
         }
       }
@@ -81,15 +103,24 @@ export default function Constellation() {
       if (!reduced) frame = requestAnimationFrame(draw);
     };
 
+    const onThemeMutation = () => {
+      palette = readPalette();
+      if (reduced) draw();
+    };
+
     resize();
     draw();
+
     const ro = new ResizeObserver(resize);
     ro.observe(canvas);
+    const themeObserver = new MutationObserver(onThemeMutation);
+    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
     window.addEventListener('resize', resize);
 
     return () => {
       cancelAnimationFrame(frame);
       ro.disconnect();
+      themeObserver.disconnect();
       window.removeEventListener('resize', resize);
     };
   }, []);
@@ -97,8 +128,7 @@ export default function Constellation() {
   return (
     <canvas
       ref={ref}
-      aria-label="A slowly moving constellation of connected points representing systems, evidence, and writing."
-      role="img"
+      aria-hidden="true"
       style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
     />
   );
