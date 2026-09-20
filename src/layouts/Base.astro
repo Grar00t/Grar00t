@@ -1,0 +1,55 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Sulaiman Alshammari — Grar00t',
+  description = 'Systems, security, local-first computing, and evidence-first technical writing by Sulaiman Alshammari.'
+} = Astro.props;
+const base = import.meta.env.BASE_URL;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#07090d" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="ambient" aria-hidden="true"></div>
+    <header class="site-header">
+      <a class="mark" href={base} aria-label="Grar00t home">
+        <span class="mark-dot"></span>
+        <span>GRAR00T</span>
+      </a>
+      <nav aria-label="Primary">
+        <a href={`${base}essays/`}>Writing</a>
+        <a href={`${base}#work`}>Work</a>
+        <a href={`${base}#principles`}>Principles</a>
+        <a href="mailto:iqd@hotmail.com">Contact</a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div>
+        <strong>Sulaiman Alshammari</strong>
+        <span>Riyadh, Saudi Arabia</span>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/Grar00t">GitHub</a>
+        <a href="mailto:iqd@hotmail.com">iqd@hotmail.com</a>
+      </div>
+    </footer>
+  </body>
+</html>
