@@ -1,9 +1,15 @@
-name: site
+name: profile-site-deploy
 
 on:
-  pull_request:
   push:
     branches: [main]
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'package.json'
+      - 'astro.config.mjs'
+      - 'tsconfig.json'
+      - '.github/workflows/site.yml'
 
 permissions:
   contents: read
@@ -11,7 +17,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages-${{ github.ref }}
+  group: pages-main
   cancel-in-progress: true
 
 jobs:
@@ -27,13 +33,11 @@ jobs:
       - name: Build
         run: npm run build
       - name: Upload Pages artifact
-        if: github.event_name == 'push'
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
   deploy:
-    if: github.event_name == 'push'
     needs: build
     runs-on: ubuntu-latest
     environment:
