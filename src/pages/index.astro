@@ -1,0 +1,104 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Constellation from '../components/Constellation';
+
+const base = import.meta.env.BASE_URL;
+const essays = (await getCollection('essays'))
+  .filter((entry) => !entry.data.draft)
+  .sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf());
+const latest = essays.slice(0, 3);
+
+const projects = [
+  { name: 'Niyah.Engine', href: 'https://github.com/Grar00t/Niyah.Engine', note: 'Native systems and local-model work' },
+  { name: 'runprint', href: 'https://github.com/Grar00t/runprint', note: 'Runtime behavior recording and verification' },
+  { name: 'KHZ-Workstation', href: 'https://github.com/Grar00t/KHZ-Workstation', note: 'Local-first workstation tooling' },
+  { name: 'Casper.DataForge', href: 'https://github.com/Grar00t/Casper.DataForge', note: 'Data and systems experiments' }
+];
+---
+<Base>
+  <div class="shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Sulaiman Alshammari · Grar00t</p>
+        <h1>Build systems.<span>Interrogate claims.</span></h1>
+        <p class="hero-copy">
+          Systems, security, local-first computing, and technical writing. I care less about confident language than about what can be inspected, reproduced, or falsified.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href={`${base}essays/`}>Read the writing →</a>
+          <a class="button" href="https://github.com/Grar00t">View GitHub</a>
+        </div>
+      </div>
+
+      <div class="constellation-frame">
+        <Constellation client:load />
+        <div class="constellation-caption">living index · systems / evidence / notes</div>
+      </div>
+    </section>
+
+    <section class="fact-strip" aria-label="Profile summary">
+      <div class="fact"><span class="fact-label">Base</span><strong>Riyadh, Saudi Arabia</strong></div>
+      <div class="fact"><span class="fact-label">Bias</span><strong>Local-first</strong></div>
+      <div class="fact"><span class="fact-label">Method</span><strong>Evidence before certainty</strong></div>
+      <div class="fact"><span class="fact-label">Contact</span><strong><a href="mailto:iqd@hotmail.com">iqd@hotmail.com</a></strong></div>
+    </section>
+
+    <section class="section" id="writing">
+      <div class="section-head">
+        <p class="section-kicker">01 · Writing</p>
+        <div>
+          <h2>Notes that survived the loop.</h2>
+          <p>Essays, observations, experiments, and hypotheses. Articles are kept separate from the code so the archive can grow without turning the site itself into a maintenance project.</p>
+        </div>
+      </div>
+      <div class="card-grid">
+        {latest.map((entry) => (
+          <a class="card" href={`${base}essays/${entry.id}/`}>
+            <span class="kind">{entry.data.kind}</span>
+            <h3>{entry.data.title}</h3>
+            <p>{entry.data.description}</p>
+            <span class="meta">{entry.data.published.toISOString().slice(0, 10)} · {entry.data.tags.join(' / ')}</span>
+          </a>
+        ))}
+      </div>
+      <div class="hero-actions" style="margin-top: 22px">
+        <a class="button" href={`${base}essays/`}>Open full archive →</a>
+      </div>
+    </section>
+
+    <section class="section" id="principles">
+      <div class="section-head">
+        <p class="section-kicker">02 · Principles</p>
+        <div>
+          <h2>Method before mythology.</h2>
+          <p>These are working constraints, not claims of infallibility.</p>
+        </div>
+      </div>
+      <div class="principles">
+        <div class="principle"><strong>No source is a truth API.</strong><span>Humans, papers, models, and institutions all produce claims that still need scope and evidence.</span></div>
+        <div class="principle"><strong>Observation before explanation.</strong><span>Describe what happened before assigning architecture, motive, or causality.</span></div>
+        <div class="principle"><strong>No PASS without a receipt.</strong><span>When something can be executed, preserve the command, environment, output, and identity of the artifact.</span></div>
+        <div class="principle"><strong>Uncertainty is allowed.</strong><span>“Not established” is often a stronger answer than polished certainty.</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="section-head">
+        <p class="section-kicker">03 · Work</p>
+        <div>
+          <h2>Selected repositories.</h2>
+          <p>The profile is the index. The repositories remain the source of truth for their own code, history, tests, and claims.</p>
+        </div>
+      </div>
+      <div class="project-list">
+        {projects.map((project) => (
+          <a class="project-row" href={project.href} target="_blank" rel="noopener noreferrer">
+            <div><strong>{project.name}</strong><br/><span>{project.note}</span></div>
+            <code>github ↗</code>
+          </a>
+        ))}
+      </div>
+    </section>
+  </div>
+</Base>
