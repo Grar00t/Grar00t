@@ -1,0 +1,29 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const essays = (await getCollection('essays')).filter((entry) => !entry.data.draft);
+  return essays.map((entry) => ({ params: { id: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props as { entry: CollectionEntry<'essays'> };
+const { Content } = await render(entry);
+const base = import.meta.env.BASE_URL;
+---
+<Base title={`${entry.data.title} — Sulaiman Alshammari`} description={entry.data.description}>
+  <article class="article-shell">
+    <header>
+      <a class="tag" href={`${base}essays/`}>← WRITING ARCHIVE</a>
+      <p class="eyebrow" style="margin-top:30px">{entry.data.kind}</p>
+      <h1>{entry.data.title}</h1>
+      <p class="lead">{entry.data.description}</p>
+      <p class="meta" style="color:var(--faint);font-size:9px;margin-top:20px">
+        {entry.data.published.toISOString().slice(0, 10)} · {entry.data.tags.join(' / ')}
+      </p>
+    </header>
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+</Base>
