@@ -1,0 +1,7 @@
+.theme-option {
+  color: var(--muted);
+}
+
+section[id] {
+  scroll-margin-top: 88px;
+}
