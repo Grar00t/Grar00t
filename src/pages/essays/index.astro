@@ -1,0 +1,54 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+const base = import.meta.env.BASE_URL;
+const essays = (await getCollection('essays'))
+  .filter((entry) => !entry.data.draft)
+  .sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf());
+---
+<Base title="Writing — Sulaiman Alshammari" description="Essays, notes, observations, experiments, and hypotheses by Sulaiman Alshammari.">
+  <div class="shell">
+    <section class="archive-head">
+      <p class="eyebrow">Writing archive</p>
+      <h1>Thoughts, tested where possible.</h1>
+      <p>
+        This archive is designed to scale from short notes to long essays. Search filters titles, summaries, tags, and article type directly in the browser.
+      </p>
+      <input id="essay-search" class="search-box" type="search" placeholder="Search the archive…" aria-label="Search writing archive" />
+    </section>
+
+    <section class="essay-list" id="essay-list">
+      {essays.map((entry) => (
+        <article
+          class="essay-item"
+          data-search={`${entry.data.title} ${entry.data.description} ${entry.data.tags.join(' ')} ${entry.data.kind}`.toLowerCase()}
+        >
+          <time datetime={entry.data.published.toISOString()}>{entry.data.published.toISOString().slice(0, 10)}</time>
+          <div>
+            <a href={`${base}essays/${entry.id}/`}><h2>{entry.data.title}</h2></a>
+            <p>{entry.data.description}</p>
+            <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
+              <span class="tag">{entry.data.kind}</span>
+              {entry.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+            </div>
+          </div>
+          <a class="tag" href={`${base}essays/${entry.id}/`}>READ →</a>
+        </article>
+      ))}
+    </section>
+  </div>
+
+  <script>
+    const input = document.querySelector('#essay-search');
+    const rows = Array.from(document.querySelectorAll('#essay-list [data-search]'));
+    if (input instanceof HTMLInputElement) {
+      input.addEventListener('input', () => {
+        const q = input.value.trim().toLowerCase();
+        for (const row of rows) {
+          if (row instanceof HTMLElement) row.hidden = !!q && !row.dataset.search?.includes(q);
+        }
+      });
+    }
+  </script>
+</Base>
