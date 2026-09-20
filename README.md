@@ -1,53 +1,42 @@
 <div align="center">
 
-### Editorial Essay · Human–Machine Cognition
+# Sulaiman Alshammari
 
-# The Anthropomorphism Deception
+**Systems · Security · Local-first computing · Evidence-first engineering**
 
-*Why interfaces that act human make us misread what machines actually do —
-and why that misreading is now a design choice with real costs.*
+Riyadh, Saudi Arabia
 
-**SULAIMAN ALSHAMMARI**
-
-`NAMED & REACHABLE` · `REALITY ONLY`
+[Official site](https://grar00t.github.io/Grar00t/) · [GitHub](https://github.com/Grar00t) · [Email](mailto:iqd@hotmail.com)
 
 </div>
 
 ---
 
-## About
+I build and audit systems with a simple rule: **claims should be separated from proof**.
 
-Network technician, CCNA-certified, with three Linux Foundation certifications.
-I prefer a local-first, hybrid workflow — owning my tools outright rather than
-renting them indefinitely through subscriptions.
+My work spans native systems, local AI, runtime verification, security architecture, and technical writing. I publish essays and engineering notes when a question survives long enough to deserve a written answer.
 
-I build with **C, C++, C#, .NET, Java, and Assembly**.
+### Working principles
 
-## The Essay
+- No source is a truth API.
+- Observation comes before explanation.
+- A passing claim needs a receipt.
+- Uncertainty should be explicit, not hidden behind confident prose.
+- Critique systems and evidence before assigning motives to people.
 
-Most tools marketed today as "AI" are advanced statistical prediction layers,
-not genuine intelligence. Conversational interfaces are designed to *feel*
-human — first-person pronouns, apologies, confidence — but that design choice
-encourages users to attribute understanding, intent, and reasoning to a
-system that is, underneath, recombining patterns from its training data.
+### Selected work
 
-That gap between *how it feels* and *what it actually does* isn't an
-accident. It's a UX decision, and it has consequences: users trust outputs
-they shouldn't, defer judgment they shouldn't defer, and mistake fluency for
-correctness.
+- [Niyah.Engine](https://github.com/Grar00t/Niyah.Engine)
+- [runprint](https://github.com/Grar00t/runprint)
+- [KHZ-Workstation](https://github.com/Grar00t/KHZ-Workstation)
+- [Casper.DataForge](https://github.com/Grar00t/Casper.DataForge)
 
-My interest is in closing that gap — not by making machines seem more human,
-but by being honest about what they are, and building toward systems capable
-of genuine reasoning rather than persuasive mimicry.
+### Writing
 
-## Stack
+Long-form essays, notes, experiments, and technical observations live on the site:
 
-`C` · `C++` · `C#` · `.NET` · `Java` · `Assembly` · `Linux`
+**[grar00t.github.io/Grar00t](https://grar00t.github.io/Grar00t/)**
 
 ---
 
-<div align="center">
-
-*Riyadh, Saudi Arabia 🇸🇦*
-
-</div>
+**Contact:** [iqd@hotmail.com](mailto:iqd@hotmail.com)
