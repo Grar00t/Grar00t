@@ -6,7 +6,7 @@
 
 Riyadh, Saudi Arabia
 
-[Official site](https://grar00t.github.io/Grar00t/) · [GitHub](https://github.com/Grar00t) · [Email](mailto:iqd@hotmail.com)
+[Official site](https://grar00t.github.io/Grar00t/) · [GitHub](https://github.com/Grar00t) · [Sponsor](https://github.com/sponsors/Grar00t) · [Email](mailto:iqd@hotmail.com)
 
 </div>
 
@@ -36,6 +36,10 @@ My work spans native systems, local AI, runtime verification, security architect
 Long-form essays, notes, experiments, and technical observations live on the site:
 
 **[grar00t.github.io/Grar00t](https://grar00t.github.io/Grar00t/)**
+
+### Support
+
+If my open-source work is useful to you, you can support continued independent engineering through [GitHub Sponsors](https://github.com/sponsors/Grar00t).
 
 ---
 
